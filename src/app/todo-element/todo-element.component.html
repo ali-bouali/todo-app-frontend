@@ -1,0 +1,33 @@
+<mat-card class="example-card mb-2">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image" orange600></div>
+      <mat-card-title>
+        {{todoDto.title}}
+      </mat-card-title>
+      <mat-card-subtitle>{{todoDto.startDate}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        {{todoDto.description}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button *ngIf="!todoDto.favorite" (click) = "addToFavorite()">
+        <mat-icon>favorite_border</mat-icon>
+      </button>
+      <button mat-button *ngIf="todoDto.favorite" color="warn" (click)="removeFromFavorite()">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-button style="color: green;" *ngIf="todoDto.done" (click) = "setUnDone()">
+        <mat-icon>check_circle</mat-icon>
+      </button>
+      <button mat-button  *ngIf="!todoDto.done" (click) = "setDone()">
+        <mat-icon>radio_button_unchecked</mat-icon>
+      </button>
+      <div style="float: right;">
+        <button mat-button (click) = "editTodo(todoDto.id)">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </div>
+    </mat-card-actions>
+</mat-card>

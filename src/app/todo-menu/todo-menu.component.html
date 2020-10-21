@@ -1,0 +1,12 @@
+
+<mat-list>
+    <div mat-subheader>Todo App</div>
+    <mat-list-item *ngFor="let menu of menuProperties">
+      <mat-icon mat-list-icon>{{menu.icon}}</mat-icon>
+      <div mat-line style="width: 150px;" >
+        <a class="custom-link" href = "javascript:void(0)" (click) = "navigate(menu.url)">{{menu.title}}</a>
+      </div>
+      <div mat-line> {{menu.numberOfElements}} </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </mat-list>

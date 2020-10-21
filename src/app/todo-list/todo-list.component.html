@@ -1,0 +1,26 @@
+<div *ngIf="categories?.length == 0">
+  <h4>No Todos found!</h4>
+  <h4> Create a new Category to start :-) !</h4>
+</div>
+<div class="mt-2 mb-2 mr-2 ml-2" *ngFor="let category of categories">
+    <mat-accordion class="example-headers-align" multi>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{category.name}}
+            </mat-panel-title>
+            <mat-panel-description>
+              {{category.description}}
+              <!--<mat-icon>account_circle</mat-icon>-->
+              <label>{{category.todoList?.length}}</label>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          
+          <div *ngFor = "let todo of category.todoList">
+              <app-todo-element [todoDto] = "todo" [category] = "category"></app-todo-element>
+          </div>
+          
+      
+        </mat-expansion-panel>
+    </mat-accordion>    
+</div>    

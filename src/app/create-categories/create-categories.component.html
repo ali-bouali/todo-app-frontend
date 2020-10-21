@@ -1,0 +1,31 @@
+<mat-card class="example-card mb-2">
+    <mat-card-header>
+      <mat-card-title>New Category</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="mb-2">
+            <app-todo-alert [content] = "errors" [alertType] = "'error'"></app-todo-alert>
+        </div>
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Title" [(ngModel)] = "categoryDto.name" name="name">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+            <mat-label>Description</mat-label>
+                <textarea matInput #message maxlength="256" placeholder="Category details / Description" [(ngModel)] = "categoryDto.description" name="description"></textarea>
+                <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+            </mat-form-field>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button  mat-raised-button color="primary" class="example-icon" (click) = "saveCategory()">
+            <mat-icon>save</mat-icon>
+            &nbsp;Save
+        </button>
+        <button  mat-raised-button color="warn" class="example-icon" (click) = "cancel()">
+            <mat-icon>clear</mat-icon> 
+            &nbsp;Cancel
+        </button>
+    </mat-card-actions>
+</mat-card>

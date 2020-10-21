@@ -1,0 +1,16 @@
+
+<h4 *ngIf = "categories.length == 0"> Create a new Category to start :-) !</h4>
+<div *ngFor="let category of categories" class="mr-2 ml-2 mb-2 mt-2">
+  <mat-card>
+    {{category.name}}
+    
+    <div style="float: right;">
+      <!--<button mat-icon-button class="example-icon favorite-icon" position="end" (click) = "openDialog(category.id)">
+        <mat-icon>delete</mat-icon>
+      </button>-->
+      <button mat-icon-button class="example-icon favorite-icon" position="end" (click) = "editCategory(category.id)">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </div>
+  </mat-card>
+</div>

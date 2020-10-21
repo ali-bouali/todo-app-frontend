@@ -1,0 +1,25 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" (click) = "menuButtonClick()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Todo App</span>
+    <span class="example-spacer"></span>
+    <span style="font-size: 15px !important; font-weight: normal;">Welcome, {{userName}}</span>
+    <button mat-icon-button class="example-icon favorite-icon" (click) = " goToHome()">
+      <mat-icon>home</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" [matMenuTriggerFor]="menu">
+      <mat-icon>add_box</mat-icon>
+    </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click) = "addTodoClick()">New Todo</button>
+        <button mat-menu-item (click) = "addCategoryClick()">New Category</button>
+      </mat-menu>
+    <button mat-icon-button class="example-icon" [matMenuTriggerFor]="user">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #user="matMenu">
+      <button mat-menu-item (click) = "goToProfile()">Profile</button>
+      <button mat-menu-item (click) = "logout()">Logout</button>
+    </mat-menu>
+  </mat-toolbar>
